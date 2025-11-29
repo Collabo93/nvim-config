@@ -1,2 +1,6 @@
-package.path = vim.fn.stdpath("config") .. "/?.lua;" .. package.path
-require("Collabo")
+require('config.globals')
+require('config.options')
+require('core.lsp')
+require('core.lazy')
+require('config.keymap')
+require('config.autocmd')
