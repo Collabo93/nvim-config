@@ -1,11 +1,25 @@
+local function close_floating()
+    local inactive_floating_wins = vim.fn.filter(vim.api.nvim_list_wins(), function(k, v)
+        local file_type = vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(v), "filetype")
+
+        return vim.api.nvim_win_get_config(v).relative ~= ""
+            and v ~= vim.api.nvim_get_current_win()
+            and file_type ~= "hydra_hint"
+    end)
+    for _, w in ipairs(inactive_floating_wins) do
+        pcall(vim.api.nvim_win_close, w, false)
+    end
+end
+
 -- Exit current file and navigate cursor to it
 vim.keymap.set("n", "<leader>q", function()
-    local current_file = vim.fn.expand("%:t")
     vim.cmd.Ex()
 
+    local current_file = vim.fn.expand("%:t")
     if current_file ~= "" then
         vim.fn.search(current_file)
     end
+    close_floating()
 end)
 
 -- move highlighted line up/down
