@@ -20,6 +20,7 @@ return {
             "",
             "         Neovim loaded 0/0 plugins in 0.00ms"
         }
+
         vim.api.nvim_create_autocmd("User", {
             pattern = "LazyVimStarted",
             once = true,
@@ -35,7 +36,7 @@ return {
                 pcall(vim.cmd.AlphaRedraw)
             end,
         })
-        dashboard.section.header.opts.hl = "Constant"
+        dashboard.section.header.opts.hl = "AlphaHeader"
 
         local function get_projects()
             local dirs = {}
@@ -61,7 +62,11 @@ return {
         end
 
         local buttons = {}
+        local index = 1
         for _, proj in ipairs(get_projects()) do
+            local shortcut = (index <= 9) and tostring(index) or string.sub(proj.name, 1, 1):lower()
+            index = index + 1
+
             table.insert(buttons, {
                 type = "button",
                 val = proj.icon .. proj.name,
@@ -72,9 +77,16 @@ return {
                 end,
                 opts = {
                     position = "center",
-                    shortcut = "",
-                    hl = "",
-                    keymap = { "n", string.sub(proj.name, 1, 1):lower(), "<cmd>cd " .. proj.path .. " | lcd " .. proj.path .. "<CR>", { noremap = true, silent = true } },
+                    align_shortcut = "right",
+                    width = 42,
+                    shortcut = shortcut,
+                    hl = "AlphaButtons",
+                    hl_shortcut = "AlphaShortcut",
+                    keymap = { "n", shortcut, function()
+                        vim.cmd("cd " .. proj.path)
+                        vim.cmd("lcd " .. proj.path)
+                        vim.cmd.Ex()
+                    end, { noremap = true, silent = true } },
                 },
             })
         end
