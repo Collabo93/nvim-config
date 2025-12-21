@@ -10,6 +10,7 @@ return {
 
         local alpha_config_path = vim.fn.stdpath("config") .. "\\lua\\plugins\\alpha.lua"
 
+        -- header
         dashboard.section.header.val = {
             [[ ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ]],
             [[ ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ]],
@@ -38,6 +39,7 @@ return {
         })
         dashboard.section.header.opts.hl = "AlphaHeader"
 
+        -- projects buttons
         local function get_projects()
             local dirs = {}
             local p = vim.loop.fs_scandir(projects_root)
@@ -56,7 +58,6 @@ return {
                 end
             end
 
-            -- Alphabetisch sortieren
             table.sort(dirs, function(a, b) return a.name:lower() < b.name:lower() end)
             return dirs
         end
@@ -103,18 +104,29 @@ return {
 
         dashboard.section.buttons.val = buttons
 
+        --footer
+        dashboard.section.footer.val = "KEEP CALM & CARRY ON"
+        dashboard.section.footer.opts.hl = "AlphaShortcut"
 
-
+        -- build dashboard
         dashboard.config.layout = {
             { type = "padding", val = 4 },
             dashboard.section.header,
             { type = "padding", val = 8 },
             dashboard.section.buttons,
-            { type = "padding", val = 2 },
+            { type = "padding", val = 4 },
             -- dashboard.section.footer,
         }
 
         alpha.setup(dashboard.config)
+        local draw_orig = alpha.draw
+        alpha.draw = function(conf, state, ...)
+            if not vim.api.nvim_buf_is_valid(state.buffer) then
+                print("Buffer not valid")
+                return
+            end
+            draw_orig(conf, state, ...)
+        end
 
         vim.api.nvim_create_autocmd("VimEnter", {
             callback = function()
@@ -124,4 +136,6 @@ return {
             end,
         })
     end,
+
+
 }
