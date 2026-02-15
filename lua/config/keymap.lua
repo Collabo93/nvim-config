@@ -104,3 +104,5 @@ local function toggle_diffview()
 end
 
 vim.keymap.set("n", "<leader>g", toggle_diffview, { desc = "[G]it Diffview toggle" })
+
+vim.keymap.set("n", "<leader>d", function() vim.lsp.buf.definition() end, { desc = "Go to definition" })
