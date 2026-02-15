@@ -105,4 +105,8 @@ end
 
 vim.keymap.set("n", "<leader>g", toggle_diffview, { desc = "[G]it Diffview toggle" })
 
+-- jump to definition
 vim.keymap.set("n", "<leader>d", function() vim.lsp.buf.definition() end, { desc = "Go to definition" })
+
+-- jump to previous buffer
+vim.keymap.set("n", "<leader>^", ":b#<CR>", { noremap = true, silent = true })
