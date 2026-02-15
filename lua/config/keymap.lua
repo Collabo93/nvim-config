@@ -48,6 +48,9 @@ vim.keymap.set("n", "<leader>v", function()
     vim.cmd("wincmd l")
 end, { desc = "Move focus to the left window or close the right window" })
 
+-- visual block mode with Alt + v, since Ctrl + v is used for pasting in terminal
+vim.keymap.set("n", "<A-v>", "<C-v>", { noremap = true, silent = true })
+
 -- move between splits
 vim.keymap.set("n", "<leader>h", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<leader>l", "<C-w><C-l>", { desc = "Move focus to the right window" })
