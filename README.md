@@ -10,7 +10,6 @@ A custom Neovim setup I use on a daily basis. This repository mainly serves as m
 This section lists the plugins and language servers used in this Neovim configuration to enhance functionality and development experience.
 
 - **alpha**: Add a Dashboard to Neovim. [Link](https://github.com/goolord/alpha-nvim)
-- **autoclose**: Automatically pairs brackets, quotes, and other characters. [Link](https://github.com/m4xshen/autoclose.nvim)
 - **biome**: Code formatter for multiple languages. [Link](https://github.com/prettier/prettier)
 - **blink**: Completion Plugin. [Link](https://github.com/saghen/blink.cmp)
 - **catppuccin**: pastel theme [Link](https://github.com/catppuccin/nvim)
