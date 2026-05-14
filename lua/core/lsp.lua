@@ -12,38 +12,6 @@ vim.lsp.config("lua_ls", {
 
 vim.lsp.enable({ 'biome', 'lua_ls', 'ts_ls', 'intelephense' })
 
--- LSP Completion
--- vim.api.nvim_create_autocmd('LspAttach', {
---     callback = function(ev)
---         local client = vim.lsp.get_client_by_id(ev.data.client_id)
---         if not client then return end
---
---         vim.schedule(function()
---             if client.server_capabilities.completionProvider then
---                 vim.bo[ev.buf].completeopt = 'menu,menuone,noinsert,noselect'
---
---                 vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
---
---                 local function map(key, direction)
---                     vim.keymap.set('i', key, function()
---                         if vim.fn.pumvisible() == 1 then
---                             return direction == 'down'
---                                 and '<C-n>'
---                                 or '<C-p>'
---                         else
---                             return key
---                         end
---                     end, { expr = true, buffer = ev.buf })
---                 end
---
---                 map('<S-j>', 'down')
---                 map('<S-k>', 'up')
---             end
---         end)
---     end,
--- })
-
-
 -- Diagnostics
 vim.diagnostic.config({
     virtual_text = false,

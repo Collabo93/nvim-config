@@ -19,6 +19,9 @@ vim.opt.splitbelow = false
 -- highlight current line
 vim.opt.cursorline = true
 
+-- enable true color support
+vim.opt.termguicolors = true
+
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
