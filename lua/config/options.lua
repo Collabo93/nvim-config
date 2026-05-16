@@ -48,3 +48,9 @@ vim.opt.updatetime = 50
 
 -- vim.api.nvim_set_current_dir(settings.start_dir)
 vim.api.nvim_set_current_dir(vim.fn.stdpath("config"))
+
+-- Use global statusline
+vim.opt.laststatus = 3
+
+-- Remove ~ from end of buffer
+vim.opt.fillchars:append({ eob = " " })

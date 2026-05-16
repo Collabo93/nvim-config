@@ -32,7 +32,7 @@ local function get_projects()
             table.insert(dirs, {
                 name = name,
                 path = full_path,
-                icon = "  ",
+                icon = "  ",
             })
         end
     end
