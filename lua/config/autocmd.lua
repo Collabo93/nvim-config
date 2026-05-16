@@ -7,16 +7,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
--- disable line numbers for certain file types
--- netrw is the default file explorer, alpha is the dashboard plugin
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "netrw", "alpha" },
-    callback = function()
-        vim.opt_local.number = false
-        vim.opt_local.relativenumber = false
-    end,
-})
-
 -- update nvim-treesitter pasres, when the treesitter is updated
 vim.api.nvim_create_autocmd('PackChanged', {
     callback = function(ev)

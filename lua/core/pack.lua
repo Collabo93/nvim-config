@@ -1,5 +1,5 @@
 vim.pack.add({
-    -- alpha-nvim
+    -- alpha-nvim, oil
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     --blink-cmp, luaSnip
     { src = "https://github.com/rafamadriz/friendly-snippets" },
@@ -33,4 +33,5 @@ vim.pack.add({
     { src = "https://github.com/nvim-telescope/telescope.nvim" },
     { src = "https://github.com/folke/todo-comments.nvim" },
     { src = "https://github.com/akinsho/toggleterm.nvim" },
+    { src = "https://github.com/stevearc/oil.nvim" },
 })

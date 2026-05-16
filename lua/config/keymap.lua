@@ -1,25 +1,13 @@
-local function close_floating()
-    local inactive_floating_wins = vim.fn.filter(vim.api.nvim_list_wins(), function(k, v)
-        local file_type = vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(v), "filetype")
-
-        return vim.api.nvim_win_get_config(v).relative ~= ""
-            and v ~= vim.api.nvim_get_current_win()
-            and file_type ~= "hydra_hint"
-    end)
-    for _, w in ipairs(inactive_floating_wins) do
-        pcall(vim.api.nvim_win_close, w, false)
-    end
-end
-
--- Exit current file and navigate cursor to it
+-- Exit current file and open oil
 vim.keymap.set("n", "<leader>q", function()
-    vim.cmd.Ex()
-
-    local current_file = vim.fn.expand("%:t")
-    if current_file ~= "" then
-        vim.fn.search(current_file)
+    -- netrw default
+    -- vim.cmd.Ex()
+    if vim.bo.filetype == "oil" then
+        vim.cmd("Oil")
+    else
+        -- in normalem File: öffne Oil im File-Verzeichnis
+        require("oil").open(vim.fn.expand("%:p:h"))
     end
-    close_floating()
 end)
 
 -- move highlighted line up/down
@@ -68,10 +56,6 @@ vim.keymap.set("n", "<leader>o", "vi'")
 vim.keymap.set("n", "<leader>w", vim.lsp.buf.format)
 
 -- UndotreeToggle
--- vim.keymap.set("n", "<leader>u", function()
---     vim.cmd("UndotreeToggle")
---     vim.cmd("UndotreeFocus")
--- end, { desc = "Toggle and focus Undotree" })
 vim.keymap.set("n", "<leader>u", function()
     require("undotree").open()
 end, { desc = "Open UndoTree" })
@@ -103,7 +87,6 @@ local function toggle_diffview()
         vim.cmd("DiffviewClose")
     else
         vim.cmd("DiffviewOpen HEAD")
-        -- vim.cmd("DiffviewOpen")
     end
 end
 
