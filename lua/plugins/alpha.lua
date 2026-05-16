@@ -14,24 +14,8 @@ dashboard.section.header.val = {
     [[ ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ]],
     [[ ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ]],
     "",
-    "         Neovim loaded 0/0 plugins in 0.00ms"
 }
 
-vim.api.nvim_create_autocmd("User", {
-    pattern = "LazyVimStarted",
-    once = true,
-    callback = function()
-        local stats = require("lazy").stats()
-        local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-        local lazy_line = "       Neovim loaded "
-            .. stats.loaded .. "/" .. stats.count
-            .. " plugins in " .. ms .. "ms"
-
-        dashboard.section.header.val[8] = lazy_line
-
-        pcall(vim.cmd.AlphaRedraw)
-    end,
-})
 dashboard.section.header.opts.hl = "AlphaHeader"
 
 -- projects buttons
@@ -69,7 +53,8 @@ for _, proj in ipairs(get_projects()) do
         on_press = function()
             vim.cmd("cd " .. proj.path)
             vim.cmd("lcd " .. proj.path)
-            vim.cmd.Ex()
+            -- vim.cmd.Ex()
+            require("oil").open(vim.fn.expand("%:p:h"))
         end,
         opts = {
             position = "center",
@@ -81,7 +66,8 @@ for _, proj in ipairs(get_projects()) do
             keymap = { "n", shortcut, function()
                 vim.cmd("cd " .. proj.path)
                 vim.cmd("lcd " .. proj.path)
-                vim.cmd.Ex()
+                -- vim.cmd.Ex()
+                require("oil").open(vim.fn.expand("%:p:h"))
             end, { noremap = true, silent = true } },
         },
     })
