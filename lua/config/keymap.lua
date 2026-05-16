@@ -68,10 +68,14 @@ vim.keymap.set("n", "<leader>o", "vi'")
 vim.keymap.set("n", "<leader>w", vim.lsp.buf.format)
 
 -- UndotreeToggle
+-- vim.keymap.set("n", "<leader>u", function()
+--     vim.cmd("UndotreeToggle")
+--     vim.cmd("UndotreeFocus")
+-- end, { desc = "Toggle and focus Undotree" })
 vim.keymap.set("n", "<leader>u", function()
-    vim.cmd("UndotreeToggle")
-    vim.cmd("UndotreeFocus")
-end, { desc = "Toggle and focus Undotree" })
+    require("undotree").open()
+end, { desc = "Open UndoTree" })
+
 
 -- Select all text in the current buffer
 vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true })

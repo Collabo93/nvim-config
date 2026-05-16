@@ -44,6 +44,10 @@ The following tools are required to use this Neovim configuration:
       ```bash
       npm install -g intelephense
       ```
+    - **tree-sitter-cli**: Install via npm:
+      ```bash
+      npm install -g tree-sitter-cli 
+      ```
 - **Environment Variables**:
     - **MinGW64**: Download [MinGW64](https://winlibs.com/) and add the `mingw64\bin` folder to your `PATH`, e.g., `C:\env_vars\mingw64\bin`.
     - **Ripgrep**: Download [Ripgrep](https://github.com/BurntSushi/ripgrep/releases) and add its folder to your `PATH`, e.g., `C:\env_vars\ripgrep`.
