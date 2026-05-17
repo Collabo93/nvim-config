@@ -6,17 +6,132 @@ local dashboard = require("alpha.themes.dashboard")
 local alpha_config_path = vim.fn.stdpath("config") .. "\\lua\\plugins\\alpha.lua"
 
 -- header
-dashboard.section.header.val = {
-    [[ ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ]],
-    [[ ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ]],
-    [[ ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ]],
-    [[ ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ]],
-    [[ ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ]],
-    [[ ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ]],
-    "",
-}
+local fill = vim.fn.winheight(0) - 43
+local logo = (fill >= 0 and [[
 
-dashboard.section.header.opts.hl = "AlphaHeader"
+
+
+    ]] or '') ..
+    [[
+                                          
+       ███████████           █████      ██
+      ███████████             █████ 
+      ████████████████ ███████████ ███   ███████
+     ████████████████ ████████████ █████ ██████████████
+    █████████████████████████████ █████ █████ ████ █████
+  ██████████████████████████████████ █████ █████ ████ █████
+ ██████  ███ █████████████████ ████ █████ █████ ████ ██████
+ ██████   ██  ███████████████   ██ █████████████████
+
+      ]]
+
+local header_hl = {}
+if fill >= 0 then
+    table.insert(header_hl, { { "Red", 1, 1 } })
+    table.insert(header_hl, { { "Red", 1, 1 } })
+    table.insert(header_hl, { { "Red", 1, 1 } })
+end
+table.insert(header_hl, { { "AlphaHeader0_0", 46, 48 } }) -- Line 10
+table.insert(header_hl, {                                 -- Line 11
+    { "AlphaHeader1_0", 7,  22 },
+    { "AlphaHeader1_1", 33, 40 },
+    { "AlphaHeader1_2", 40, 50 }
+})
+table.insert(header_hl, { -- Line 12
+    { "AlphaHeader2_0", 6,  21 },
+    { "AlphaHeader2_1", 33, 45 },
+})
+table.insert(header_hl, { -- Line 13
+    { "AlphaHeader3_0", 6,  19 },
+    { "AlphaHeader3_1", 19, 20 },
+    { "AlphaHeader3_2", 20, 35 },
+    { "AlphaHeader3_3", 35, 45 },
+    { "AlphaHeader3_4", 45, 90 },
+})
+table.insert(header_hl, { -- Line 14
+    { "AlphaHeader4_0", 5,  18 },
+    { "AlphaHeader4_1", 18, 36 },
+    { "AlphaHeader4_2", 36, 45 },
+    { "AlphaHeader4_3", 45, 90 }
+})
+table.insert(header_hl, { -- Line 15
+    { "AlphaHeader5_0", 4,  17 },
+    { "AlphaHeader5_1", 17, 24 },
+    { "AlphaHeader5_2", 24, 28 },
+    { "AlphaHeader5_3", 28, 37 },
+    { "AlphaHeader5_4", 37, 46 },
+    { "AlphaHeader5_5", 46, 90 },
+})
+table.insert(header_hl, { -- Line 16
+    { "AlphaHeader6_0", 2,  17 },
+    { "AlphaHeader6_1", 17, 38 },
+    { "AlphaHeader6_2", 38, 45 },
+    { "AlphaHeader6_3", 46, 90 },
+})
+table.insert(header_hl, { -- Line 17
+    { "AlphaHeader7_0", 1,  17 },
+    { "AlphaHeader7_1", 17, 38 },
+    { "AlphaHeader7_2", 38, 45 },
+    { "AlphaHeader7_3", 46, 90 },
+})
+table.insert(header_hl, { -- Line 18
+    { "AlphaHeader8_0", 1,  37 },
+    { "AlphaHeader8_1", 37, 91 },
+})
+
+-- N (Mauve)
+vim.api.nvim_set_hl(0, "AlphaHeader1_0", { fg = "#775ba0" })
+vim.api.nvim_set_hl(0, "AlphaHeader2_0", { fg = "#795da2" })
+vim.api.nvim_set_hl(0, "AlphaHeader3_0", { fg = "#7b5fa4" })
+vim.api.nvim_set_hl(0, "AlphaHeader4_0", { fg = "#7f63a8" })
+vim.api.nvim_set_hl(0, "AlphaHeader5_0", { fg = "#8264ab" })
+vim.api.nvim_set_hl(0, "AlphaHeader6_0", { fg = "#8566ad" })
+vim.api.nvim_set_hl(0, "AlphaHeader7_0", { fg = "#8769b0" })
+vim.api.nvim_set_hl(0, "AlphaHeader8_0", { fg = "#7d61a6" })
+
+-- e, a (Mauve hell)
+vim.api.nvim_set_hl(0, "AlphaHeader3_1", { fg = "#7f63a8" })
+vim.api.nvim_set_hl(0, "AlphaHeader3_2", { fg = "#ccaaf7" })
+vim.api.nvim_set_hl(0, "AlphaHeader4_1", { fg = "#cba8f7" })
+vim.api.nvim_set_hl(0, "AlphaHeader5_1", { fg = "#cba6f7" })
+vim.api.nvim_set_hl(0, "AlphaHeader5_2", { fg = "#7f63a8" })
+vim.api.nvim_set_hl(0, "AlphaHeader5_3", { fg = "#cba6f7" })
+vim.api.nvim_set_hl(0, "AlphaHeader6_1", { fg = "#c9a4f5" })
+vim.api.nvim_set_hl(0, "AlphaHeader7_1", { fg = "#c7a2f3" })
+
+-- V (Blue dunkel)
+vim.api.nvim_set_hl(0, "AlphaHeader0_0", { fg = "#85b0f6" })
+vim.api.nvim_set_hl(0, "AlphaHeader1_1", { fg = "#5185d1" })
+vim.api.nvim_set_hl(0, "AlphaHeader1_2", { fg = "#85b0f6" })
+vim.api.nvim_set_hl(0, "AlphaHeader2_1", { fg = "#5387d3" })
+vim.api.nvim_set_hl(0, "AlphaHeader3_3", { fg = "#5589d5" })
+vim.api.nvim_set_hl(0, "AlphaHeader4_2", { fg = "#5b8dd9" })
+vim.api.nvim_set_hl(0, "AlphaHeader5_4", { fg = "#6093de" })
+vim.api.nvim_set_hl(0, "AlphaHeader6_2", { fg = "#6496e0" })
+vim.api.nvim_set_hl(0, "AlphaHeader7_2", { fg = "#6496e0" })
+
+-- i, m, m (Blue hell)
+vim.api.nvim_set_hl(0, "AlphaHeader3_4", { fg = "#85b0f6" })
+vim.api.nvim_set_hl(0, "AlphaHeader4_3", { fg = "#87b2f8" })
+vim.api.nvim_set_hl(0, "AlphaHeader5_5", { fg = "#89b4fa" })
+vim.api.nvim_set_hl(0, "AlphaHeader6_3", { fg = "#8cb6fa" })
+vim.api.nvim_set_hl(0, "AlphaHeader7_3", { fg = "#8eb8fa" })
+vim.api.nvim_set_hl(0, "AlphaHeader8_1", { fg = "#578bd7" })
+
+local utils = require('alpha.utils')
+local header_val = vim.split(logo, '\n')
+header_hl = utils.charhl_to_bytehl(header_hl, header_val, false)
+
+dashboard.section.header.opts.hl = header_hl
+dashboard.section.header.val = header_val
+
+local version = vim.version()
+local versionStr = "  v" .. version.major .. "." .. version.minor .. "." .. version.patch
+local infoSection = {
+    type = "text",
+    val = versionStr,
+    opts = { position = "center", hl = "AlphaInfo" },
+}
 
 -- projects buttons
 local function get_projects()
@@ -41,6 +156,7 @@ local function get_projects()
     return dirs
 end
 
+vim.api.nvim_set_hl(0, "AlphaButtonIcon", { fg = "#89b4fa" })
 local buttons = {}
 local index = 1
 for _, proj in ipairs(get_projects()) do
@@ -53,7 +169,6 @@ for _, proj in ipairs(get_projects()) do
         on_press = function()
             vim.cmd("cd " .. proj.path)
             vim.cmd("lcd " .. proj.path)
-            -- vim.cmd.Ex()
             require("oil").open(vim.fn.expand("%:p:h"))
         end,
         opts = {
@@ -61,12 +176,14 @@ for _, proj in ipairs(get_projects()) do
             align_shortcut = "right",
             width = 42,
             shortcut = shortcut,
-            hl = "AlphaButtons",
+            hl = {
+                { "AlphaButtonIcon", 0, 5 },  -- Icon blau
+                { "AlphaButtons",    5, -1 }, -- Projektname in alter Farbe
+            },
             hl_shortcut = "AlphaShortcut",
             keymap = { "n", shortcut, function()
                 vim.cmd("cd " .. proj.path)
                 vim.cmd("lcd " .. proj.path)
-                -- vim.cmd.Ex()
                 require("oil").open(vim.fn.expand("%:p:h"))
             end, { noremap = true, silent = true } },
         },
@@ -91,12 +208,14 @@ dashboard.section.footer.opts.hl = "AlphaShortcut"
 
 -- build dashboard
 dashboard.config.layout = {
-    { type = "padding", val = 4 },
+    { type = "padding", val = 0 },
     dashboard.section.header,
-    { type = "padding", val = 8 },
+    { type = "padding", val = 0 },
+    infoSection,
+    { type = "padding", val = 6 },
     dashboard.section.buttons,
-    { type = "padding", val = 4 },
-    -- dashboard.section.footer,
+    { type = "padding", val = 2 },
+    dashboard.section.footer,
 }
 
 alpha.setup(dashboard.config)
