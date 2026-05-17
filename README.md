@@ -23,6 +23,8 @@ This section lists the plugins and language servers used in this Neovim configur
 - **lua-language-server (lua_ls)**: Lua language server. [Link](https://github.com/LuaLS/lua-language-server)
 - **lualine**: Customizable status line for Neovim. [Link](https://github.com/nvim-lualine/lualine.nvim)
 - **LuaSnup**: Code templates [Link](https://github.com/L3MON4D3/LuaSnip)
+- **modicator**: Changes the color of your cursor's line number based on the current Vim mode [Link](https://github.com/mawkler/modicator.nvim)
+- **oil**: File explorer, to edit filesystem like a buffer [Link](https://github.com/stevearc/oil.nvim)
 - **telescope**: Fuzzy finder for files, buffers, and more. [Link](https://github.com/nvim-telescope/telescope.nvim)
 - **todo**: Highlights and manages TODO comments. [Link](https://github.com/folke/todo-comments.nvim)
 - **toggleterm**: Persist and toggle multiple terminals [Link](https://github.com/akinsho/toggleterm.nvim)
