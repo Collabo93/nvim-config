@@ -35,13 +35,22 @@ vim.keymap.set("n", "<leader>v", function()
     vim.cmd("wincmd v")
     vim.cmd("wincmd l")
 end, { desc = "Move focus to the left window or close the right window" })
-
--- visual block mode with Alt + v, since Ctrl + v is used for pasting in terminal
-vim.keymap.set("n", "<A-v>", "<C-v>", { noremap = true, silent = true })
+vim.keymap.set("t", "<leader>v", function()
+    vim.cmd("stopinsert")
+    vim.cmd("wincmd v")
+    vim.cmd("wincmd l")
+    vim.cmd("terminal")
+end, { desc = "Vertical split and move right (terminal)" })
 
 -- move between splits
 vim.keymap.set("n", "<leader>h", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<leader>l", "<C-w><C-l>", { desc = "Move focus to the right window" })
+vim.keymap.set("t", "<leader>h", "<C-\\><C-n><C-w><C-h>", { desc = "Move focus to the left window (terminal)" })
+vim.keymap.set("t", "<leader>l", "<C-\\><C-n><C-w><C-l>", { desc = "Move focus to the right window (terminal)" })
+
+-- visual block mode with Alt + v, since Ctrl + v is used for pasting in terminal
+vim.keymap.set("n", "<A-v>", "<C-v>", { noremap = true, silent = true })
+
 
 -- comment highlight
 vim.keymap.set("v", "#", function()
@@ -68,8 +77,25 @@ vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true })
 vim.keymap.set('n', 'U', '<C-r>', { desc = 'Redo' })
 
 -- Plugin keymaps
-vim.keymap.set("n", "<leader>p", "<cmd>Alpha<cr>", { desc = "Dashboard" })                     -- Reopen dashboard
-vim.keymap.set({ "n", "t" }, "<leader>c", "<cmd>ToggleTerm<cr>", { desc = "Toggle terminal" }) -- Toggle terminal
+vim.keymap.set("n", "<leader>p", "<cmd>Alpha<cr>", { desc = "Dashboard" }) -- Reopen dashboard
+vim.keymap.set({ "n", "t" }, "<leader>c", function()
+    local wins = vim.api.nvim_list_wins()
+    local term_wins = {}
+    for _, win in ipairs(wins) do
+        local buf = vim.api.nvim_win_get_buf(win)
+        if vim.bo[buf].buftype == "terminal" then
+            table.insert(term_wins, win)
+        end
+    end
+
+    if #term_wins > 0 then
+        for _, win in ipairs(term_wins) do
+            vim.api.nvim_win_close(win, true)
+        end
+    else
+        vim.cmd("ToggleTerm")
+    end
+end, { desc = "Toggle terminal" })
 
 -- telescope
 vim.api.nvim_create_user_command("GrepPrompt", function()
