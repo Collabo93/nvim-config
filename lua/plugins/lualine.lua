@@ -51,6 +51,9 @@ require("lualine").setup({
             {
                 "filename",
                 path = 1,
+                cond = function()
+                    return vim.bo.filetype ~= "oil"
+                end,
             }
         },
         lualine_x = {},
