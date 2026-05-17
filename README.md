@@ -28,13 +28,12 @@ This section lists the plugins and language servers used in this Neovim configur
 - **toggleterm**: Persist and toggle multiple terminals [Link](https://github.com/akinsho/toggleterm.nvim)
 - **treesitter**: Syntax highlighting and code parsing. [Link](https://github.com/nvim-treesitter/nvim-treesitter)
 - **typescript-language-server**: TypeScript/JavaScript language server. [Link](https://github.com/typescript-language-server/typescript-language-server)
-- **undotree**: Visualizes the undo history. [Link](https://github.com/mbbill/undotree)
 
 ## Requirements
 
 The following tools are required to use this Neovim configuration:
 
-- **Neovim >= 0.11.0**: The core editor. [Link](https://github.com/neovim/neovim/releases)
+- **Neovim >= 0.12.0**: The core editor. [Link](https://github.com/neovim/neovim/releases)
 - **npm**: Needed for dependencies [Link](https://nodejs.org/)
     - **Biome**: Install via npm:
       ```bash
