@@ -38,6 +38,16 @@ vim.pack.add({
 })
 
 require("vim._core.ui2").enable({})
+local original_select = vim.ui.select
+vim.ui.select = function(items, opts, on_choice)
+    local title = opts and opts.prompt or ""
+    if title:match("fugitive") or title:match("Git") then
+        print("Using vim.fn.inputlist for Git-related selection")
+        vim.fn.inputlist(items)
+        return
+    end
+    original_select(items, opts, on_choice)
+end
 
 require('plugins.devicons')
 require('plugins.treesitter')
