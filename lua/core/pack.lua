@@ -34,4 +34,22 @@ vim.pack.add({
     { src = "https://github.com/folke/todo-comments.nvim" },
     { src = "https://github.com/akinsho/toggleterm.nvim" },
     { src = "https://github.com/stevearc/oil.nvim" },
+    { src = "https://github.com/rachartier/tiny-cmdline.nvim" },
 })
+
+require("vim._core.ui2").enable({})
+
+require('plugins.devicons')
+require('plugins.treesitter')
+require('plugins.alpha')
+require('plugins.blink')
+require('plugins.catppuccin')
+require('plugins.diffview')
+require('plugins.gitsigns')
+require('plugins.lualine')
+require('plugins.modicator')
+require('plugins.luasnip')
+require('plugins.telescope')
+require('plugins.toogleterm')
+require('plugins.oil')
+require('plugins.cmdline')
