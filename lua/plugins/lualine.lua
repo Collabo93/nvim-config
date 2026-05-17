@@ -55,6 +55,12 @@ require("lualine").setup({
         },
         lualine_x = {},
         lualine_y = { "diagnostics" },
-        lualine_z = { "filetype" },
+        lualine_z = {
+            {
+                "filetype",
+                colored = false, -- Icon erbt die Farbe von color.fg
+                color = { fg = "#000000" },
+            }
+        },
     },
 })
