@@ -57,7 +57,7 @@ The following tools are required to use this Neovim configuration:
       ```bash
       npm config get prefix
       ```
-- **Nerd Fonts**: Download and install any [Nerd Font](https://www.nerdfonts.com/font-downloads) and set it as the font in your terminal for proper icon rendering.
+- **Nerd Fonts**: Download and install the [Nerd Font](https://www.nerdfonts.com/font-downloads) of your choice and set it as the font in your terminal for proper icon rendering.
 ## Shortcuts
 
 The following table lists key mappings for this Neovim configuration:
@@ -65,7 +65,7 @@ The following table lists key mappings for this Neovim configuration:
 | Shortcut    | Mode   | Description                                 |
 | ----------- | ------ | ------------------------------------------- |
 | `<C-a>`     | Normal | Select all text in the current buffer       |
-| `<C-a>`     | Normal | Redo last change                            |
+| `<C-u>`     | Normal | Redo last change                            |
 | `<leader>q` | Normal | Exit current file                           |
 | `<leader>s` | Normal | Replace current word in file                |
 | `<leader>n` | Normal | Jump to next diagnostic error               |
@@ -76,6 +76,8 @@ The following table lists key mappings for this Neovim configuration:
 | `<leader>i` | Normal | Select inside parentheses                   |
 | `<leader>o` | Normal | Select inside braces                        |
 | `<leader>w` | Normal | Format current buffer                       |
+| `<leader>d` | Normal | Jump to definition                          |
+| `<leader>^` | Normal | Jump to previous buffer                     |
 | `<leader>u` | Normal | Toggle Undotree                             |
 | `<leader>p` | Normal | Toggle Dashboard                            |
 | `<leader>g` | Normal | Toggle DiffView                             |
