@@ -1,6 +1,6 @@
 require('config.globals')
 require('config.options')
+require('core.pack')
 require('core.lsp')
-require('core.lazy')
 require('config.keymap')
 require('config.autocmd')
