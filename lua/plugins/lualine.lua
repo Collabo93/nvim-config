@@ -52,16 +52,24 @@ require("lualine").setup({
                 "filename",
                 path = 1,
                 cond = function()
-                    return vim.bo.filetype ~= "oil"
+                    return vim.bo.filetype ~= "oil" and vim.bo.filetype ~= "fugitive"
                 end,
             }
         },
-        lualine_x = {},
+        lualine_x = {
+            function()
+                local reg = vim.fn.reg_recording()
+                if reg ~= "" then
+                    return "recording @" .. reg
+                end
+                return ""
+            end,
+        },
         lualine_y = { "diagnostics" },
         lualine_z = {
             {
                 "filetype",
-                colored = false, -- Icon erbt die Farbe von color.fg
+                colored = false,
                 color = { fg = "#000000" },
             }
         },

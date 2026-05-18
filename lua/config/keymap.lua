@@ -11,8 +11,8 @@ vim.keymap.set("n", "<leader>q", function()
 end)
 
 -- move highlighted line up/down
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":silent! m '>+1<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set("v", "K", ":silent! m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
 -- place screen and cursor in the middle of the screen
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -103,6 +103,9 @@ vim.api.nvim_create_user_command("GrepPrompt", function()
 end, {})
 vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", { desc = "Telescope find files" })
 vim.keymap.set("n", "<leader>e", "<cmd>GrepPrompt<cr>", { desc = "Telescope live grep (prompt)" })
+
+-- hide operation of multiple line changes
+vim.opt.report = 9999
 
 -- toogle diffview
 local function toggle_diffview()
