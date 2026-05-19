@@ -14,7 +14,7 @@ vim.lsp.enable({ 'biome', 'lua_ls', 'ts_ls', 'intelephense' })
 
 -- Diagnostics
 vim.diagnostic.config({
-    virtual_text = false,
+    virtual_text = true,
     virtual_lines = false,
     float = {
         focusable = false,
