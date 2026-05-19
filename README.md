@@ -10,10 +10,10 @@ A custom Neovim setup I use on a daily basis. This repository mainly serves as m
 This section lists the plugins and language servers used in this Neovim configuration to enhance functionality and development experience.
 
 - **alpha**: Add a Dashboard to Neovim. [Link](https://github.com/goolord/alpha-nvim)
-- **biome**: Code formatter for multiple languages. [Link](https://github.com/prettier/prettier)
 - **blink**: Completion Plugin. [Link](https://github.com/saghen/blink.cmp)
 - **catppuccin**: pastel theme [Link](https://github.com/catppuccin/nvim)
 - **copilot**: AI-powered code completion. [Link](https://github.com/github/copilot.vim)
+- **copilot chat**: AI-powered chat. [Link](https://github.com/CopilotC-Nvim/CopilotChat.nvim)
 - **devicons**: Provides Nerd Font icons for use by Neovim plugins [Link](https://github.com/nvim-tree/nvim-web-devicons)
 - **diffview**: Cycle through all diffs for all modified files. [Link](https://github.com/sindrets/diffview.nvim)
 - **fugitive**: Git integration for Neovim. [Link](https://github.com/tpope/vim-fugitive)

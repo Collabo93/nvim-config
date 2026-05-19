@@ -35,6 +35,7 @@ vim.pack.add({
     { src = "https://github.com/akinsho/toggleterm.nvim" },
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/rachartier/tiny-cmdline.nvim" },
+    { src = "https://github.com/CopilotC-Nvim/CopilotChat.nvim" },
 })
 
 require("vim._core.ui2").enable({})
@@ -53,3 +54,4 @@ require('plugins.telescope')
 require('plugins.toogleterm')
 require('plugins.oil')
 require('plugins.cmdline')
+require('plugins.copilotchat')

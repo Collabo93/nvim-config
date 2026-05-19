@@ -1,1 +1,1 @@
-require("nvim-web-devicons").setup()
+require("CopilotChat").setup()

@@ -126,3 +126,10 @@ vim.keymap.set("n", "<leader>d", function() vim.lsp.buf.definition() end, { desc
 
 -- jump to previous buffer
 vim.keymap.set("n", "<leader>^", ":b#<CR>", { noremap = true, silent = true })
+
+
+-- copilotchat
+vim.keymap.set("n", "<leader>x", "<cmd>CopilotChatToggle<cr>", { desc = "Copilot Chat Toggle" })
+-- vim.keymap.set("n", "<leader>cr", "<cmd>CopilotChatReset<cr>", { desc = "Copilot Chat Reset" })
+-- vim.keymap.set("v", "<leader>ce", "<cmd>CopilotChatExplain<cr>", { desc = "Explain selection" })
+-- vim.keymap.set("v", "<leader>cf", "<cmd>CopilotChatFix<cr>", { desc = "Fix selection" })
