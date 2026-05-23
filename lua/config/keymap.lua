@@ -27,8 +27,13 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- jump to prev/next error
-vim.keymap.set("n", "<leader>n", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<leader>N", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "<leader>n", function()
+    vim.diagnostic.jump({ count = 1, float = true })
+end)
+
+vim.keymap.set("n", "<leader>N", function()
+    vim.diagnostic.jump({ count = -1, float = true })
+end)
 
 -- Open/Close splits screen, based on if there is already one
 vim.keymap.set("n", "<leader>v", function()
