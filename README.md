@@ -36,6 +36,11 @@ This section lists the plugins and language servers used in this Neovim configur
 The following tools are required to use this Neovim configuration:
 
 - **Neovim >= 0.12.0**: The core editor. [Link](https://github.com/neovim/neovim/releases)
+- **tar and curl in your PATH:**
+    Required for downloading and extracting Tree-sitter grammars.
+    - **tar** is used to extract parser archives
+    - **curl** is used to fetch grammar repositories
+    - On Windows 10/11 usually already available via C:\Windows\System32 
 - **npm**: Needed for dependencies [Link](https://nodejs.org/)
     - **Biome**: Install via npm:
       ```bash
@@ -48,6 +53,10 @@ The following tools are required to use this Neovim configuration:
     - **tree-sitter-cli**: Install via npm:
       ```bash
       npm install -g tree-sitter-cli 
+      ```
+    - **tree-sitter-cli**: Install via npm:
+      ```bash
+      npm install -g typescript-language-server typescript
       ```
 - **Environment Variables**:
     - **MinGW64**: Download [MinGW64](https://winlibs.com/) and add the `mingw64\bin` folder to your `PATH`, e.g., `C:\env_vars\mingw64\bin`.

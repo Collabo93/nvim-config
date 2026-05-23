@@ -17,12 +17,15 @@ vim.pack.add({
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
 
     -- **plugins**
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+    {
+        src = "https://github.com/nvim-treesitter/nvim-treesitter",
+        branch = "main"
+    },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
     { src = "https://github.com/goolord/alpha-nvim" },
     {
         src = "https://github.com/saghen/blink.cmp",
-        version = "v1.6.0"
+        version = "v1.10.2"
     },
     { src = "https://github.com/github/copilot.vim" },
     { src = "https://github.com/sindrets/diffview.nvim" },
@@ -55,3 +58,4 @@ require('plugins.toogleterm')
 require('plugins.oil')
 require('plugins.cmdline')
 require('plugins.copilotchat')
+require('plugins.treesitter-context')
