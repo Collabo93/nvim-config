@@ -25,6 +25,13 @@ vim.api.nvim_create_autocmd("FileType", {
         local buf = args.buf
         local ft = vim.bo[buf].filetype
 
+        -- deactivate completion in telescope prompt
+        if ft == 'TelescopePrompt' then
+            vim.opt_local.complete = ""
+            vim.opt_local.completeopt = ""
+        end
+
+
         local lang = vim.treesitter.language.get_lang(ft)
         if not lang then
             return
@@ -39,4 +46,7 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
-vim.cmd("packadd nvim.undotree")
+-- Start Neovim in the config directory
+if vim.fn.argc() == 0 then
+    vim.api.nvim_set_current_dir(vim.fn.stdpath("config"))
+end

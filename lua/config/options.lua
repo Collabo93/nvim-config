@@ -1,56 +1,55 @@
-vim.g.undotree_DiffCommand = "FC"
-
--- line relative numbers
+-- Show absolute and relative line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- os and vim have synced clipboard
+-- Sync clipboard between OS and Neovim
 vim.opt.clipboard = "unnamedplus"
 
--- Sign colum on
+-- Always show the sign column
 vim.opt.signcolumn = "yes"
 
-vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro nornu"
 
--- only split right
+-- Always split right, never below
 vim.opt.splitright = true
 vim.opt.splitbelow = false
 
--- highlight current line
+-- Highlight the current line
 vim.opt.cursorline = true
 
--- enable true color support
+-- Enable true color support
 vim.opt.termguicolors = true
 
+-- 4-space tabs, expand to spaces, smart indent
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-
 vim.opt.smartindent = true
 
+-- No line wrap, no swapfile, no backup, but persistent undo
 vim.opt.wrap = false
-
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
 
+-- No highlight on search, but show matches while typing
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
-vim.opt.termguicolors = true
-
+-- Keep 8 lines visible above/below cursor when scrolling
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
+
+-- Allow @ in filenames
 vim.opt.isfname:append("@-@")
 
+-- Faster update time for CursorHold events
 vim.opt.updatetime = 50
 
--- vim.api.nvim_set_current_dir(settings.start_dir)
-vim.api.nvim_set_current_dir(vim.fn.stdpath("config"))
-
--- Use global statusline
+-- Single global statusline
 vim.opt.laststatus = 3
 
--- Remove ~ from end of buffer
+-- Replace ~ at end of buffer with a space
 vim.opt.fillchars:append({ eob = " " })
+
+-- Suppress "N lines changed" messages
+vim.opt.report = 9999

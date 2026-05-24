@@ -4,4 +4,10 @@ vim.g.mapleader = " "
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
-vim.opt.runtimepath:append(vim.fn.stdpath("data") .. "/site")
+-- Netrw: show line numbers, no relative, no wrap
+vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro nornu"
+
+-- Use FC as diff command for undotree
+vim.g.undotree_DiffCommand = "FC"
+
+-- vim.opt.runtimepath:append(vim.fn.stdpath("data") .. "/site")
