@@ -20,7 +20,7 @@ vim.lsp.config("lua_ls", {
 })
 
 
-vim.lsp.enable({ 'biome', 'lua_ls', 'ts_ls', 'intelephense' })
+vim.lsp.enable({ 'biome', 'lua_ls', 'ts_ls', 'intelephense' ,'marksman'})
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('my.lsp', {}),

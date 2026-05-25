@@ -30,6 +30,7 @@ This section lists the plugins and language servers used in this Neovim configur
 - **toggleterm**: Persist and toggle multiple terminals [Link](https://github.com/akinsho/toggleterm.nvim)
 - **treesitter**: Syntax highlighting and code parsing. [Link](https://github.com/nvim-treesitter/nvim-treesitter)
 - **typescript-language-server**: TypeScript/JavaScript language server. [Link](https://github.com/typescript-language-server/typescript-language-server)
+[Test](test.md)
 
 ## Requirements
 
@@ -62,6 +63,7 @@ The following tools are required to use this Neovim configuration:
     - **MinGW64**: Download [MinGW64](https://winlibs.com/) and add the `mingw64\bin` folder to your `PATH`, e.g., `C:\env_vars\mingw64\bin`.
     - **Ripgrep**: Download [Ripgrep](https://github.com/BurntSushi/ripgrep/releases) and add its folder to your `PATH`, e.g., `C:\env_vars\ripgrep`.
     - **Lua Language Server**: (optional, but recommended): Download [Lua Language Server](https://luals.github.io/) and add its folder to your `PATH`, e.g., `C:\env_vars\lls`.
+    - **marksman**: (optional, for Zettelkasten system): Download [Marksman](https://github.com/artempyanykh/marksman/blob/main/docs/install.md) add the .exe to a folder and add this folder to your `PATH`, e.g., `C:\env_vars\marksman`.
     - Make sure to add npm global packages to your `PATH`. You can find the path by running:
       ```bash
       npm config get prefix
