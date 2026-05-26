@@ -4,6 +4,7 @@ local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 
 local alpha_config_path = vim.fn.stdpath("config") .. "\\lua\\plugins\\alpha.lua"
+local zettelkasten_path = vim.fn.expand("$USERPROFILE") .. "\\Documents\\zettelkasten"
 
 -- header
 local fill = vim.fn.winheight(0) - 43
@@ -160,7 +161,8 @@ vim.api.nvim_set_hl(0, "AlphaButtonIcon", { fg = "#89b4fa" })
 local buttons = {}
 local index = 1
 for _, proj in ipairs(get_projects()) do
-    local shortcut = (index <= 9) and tostring(index) or string.sub(proj.name, 1, 1):lower()
+    if index > 9 then break end
+    local shortcut = tostring(index) or string.sub(proj.name, 1, 1):lower()
     index = index + 1
 
     table.insert(buttons, {
@@ -190,6 +192,8 @@ for _, proj in ipairs(get_projects()) do
     })
 end
 
+
+
 if #buttons == 0 then
     table.insert(buttons, {
         type = "text",
@@ -203,6 +207,36 @@ end
 dashboard.section.buttons.val = buttons
 
 --footer
+local zettel_button = {
+    type = "button",
+    val = "  Zettelkasten ",
+    on_press = function()
+        local path = zettelkasten_path
+        vim.cmd("cd " .. path)
+        vim.cmd("lcd " .. path)
+        require("oil").open(path)
+    end,
+    opts = {
+        position = "center",
+        align_shortcut = "right",
+        shortcut = "Z",
+        hl = {
+            { "AlphaButtonIcon", 0, 5 },
+        },
+        hl_shortcut = "AlphaShortcut",
+        keymap = {
+            "n",
+            "Z",
+            function()
+                local path = zettelkasten_path
+                vim.cmd("cd " .. path)
+                vim.cmd("lcd " .. path)
+                require("oil").open(path)
+            end,
+            { noremap = true, silent = true }
+        },
+    },
+}
 dashboard.section.footer.val = "KEEP CALM & CARRY ON"
 dashboard.section.footer.opts.hl = "AlphaShortcut"
 
@@ -212,9 +246,11 @@ dashboard.config.layout = {
     dashboard.section.header,
     { type = "padding", val = 0 },
     infoSection,
+    { type = "padding", val = 2 },
+    zettel_button,
     { type = "padding", val = 6 },
     dashboard.section.buttons,
-    { type = "padding", val = 2 },
+    { type = "padding", val = 4 },
     dashboard.section.footer,
 }
 

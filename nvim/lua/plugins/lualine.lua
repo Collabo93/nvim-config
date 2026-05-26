@@ -14,14 +14,14 @@ local catppuccin_lualine = {
         c = gradient(c.blue).c,
     },
     insert = {
-        a = { bg = c.red, fg = c.base, gui = "bold" },
-        b = gradient(c.red).b,
-        c = gradient(c.red).c,
-    },
-    visual = {
         a = { bg = c.mauve, fg = c.base, gui = "bold" },
         b = gradient(c.mauve).b,
         c = gradient(c.mauve).c,
+    },
+    visual = {
+        a = { bg = c.peach, fg = c.base, gui = "bold" },
+        b = gradient(c.peach).b,
+        c = gradient(c.peach).c,
     },
     replace = {
         a = { bg = c.green, fg = c.base, gui = "bold" },
@@ -29,9 +29,9 @@ local catppuccin_lualine = {
         c = gradient(c.green).c,
     },
     command = {
-        a = { bg = c.yellow, fg = c.base, gui = "bold" },
-        b = gradient(c.yellow).b,
-        c = gradient(c.yellow).c,
+        a = { bg = c.red, fg = c.base, gui = "bold" },
+        b = gradient(c.red).b,
+        c = gradient(c.red).c,
     },
     inactive = {
         a = { bg = c.mantle, fg = c.overlay1, gui = "bold" },

@@ -1,18 +1,3 @@
-vim.lsp.config("lua_ls", {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
-            },
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-        },
-    },
-})
-
-vim.lsp.enable({ 'biome', 'lua_ls', 'ts_ls', 'intelephense' })
-
--- Diagnostics
 vim.diagnostic.config({
     virtual_text = true,
     virtual_lines = false,
