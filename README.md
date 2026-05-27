@@ -7,10 +7,9 @@ A custom Neovim setup I use on a daily basis. This repository mainly serves as m
 
 ## Features
 
-This section lists the plugins and language servers used in this Neovim configuration to enhance functionality and development experience.
+This section lists the plugins used in this Neovim configuration to enhance functionality and development experience.
 
 - **alpha**: Add a Dashboard to Neovim. [Link](https://github.com/goolord/alpha-nvim)
-- **blink**: Completion Plugin. [Link](https://github.com/saghen/blink.cmp)
 - **catppuccin**: pastel theme [Link](https://github.com/catppuccin/nvim)
 - **copilot**: AI-powered code completion. [Link](https://github.com/github/copilot.vim)
 - **copilot chat**: AI-powered chat. [Link](https://github.com/CopilotC-Nvim/CopilotChat.nvim)
@@ -18,19 +17,14 @@ This section lists the plugins and language servers used in this Neovim configur
 - **diffview**: Cycle through all diffs for all modified files. [Link](https://github.com/sindrets/diffview.nvim)
 - **fugitive**: Git integration for Neovim. [Link](https://github.com/tpope/vim-fugitive)
 - **gitsigns**: Displays Git signs in the gutter and provides Git-related utilities. [Link](https://github.com/lewis6991/gitsigns.nvim)
-- **intelephense**: PHP language server. [Link](https://intelephense.com)
 - **lazy**: Plugin Manager [Link](https://github.com/folke/lazy.nvim.git)
-- **lua-language-server (lua_ls)**: Lua language server. [Link](https://github.com/LuaLS/lua-language-server)
 - **lualine**: Customizable status line for Neovim. [Link](https://github.com/nvim-lualine/lualine.nvim)
-- **LuaSnup**: Code templates [Link](https://github.com/L3MON4D3/LuaSnip)
 - **modicator**: Changes the color of your cursor's line number based on the current Vim mode [Link](https://github.com/mawkler/modicator.nvim)
 - **oil**: File explorer, to edit filesystem like a buffer [Link](https://github.com/stevearc/oil.nvim)
 - **telescope**: Fuzzy finder for files, buffers, and more. [Link](https://github.com/nvim-telescope/telescope.nvim)
 - **todo**: Highlights and manages TODO comments. [Link](https://github.com/folke/todo-comments.nvim)
 - **toggleterm**: Persist and toggle multiple terminals [Link](https://github.com/akinsho/toggleterm.nvim)
 - **treesitter**: Syntax highlighting and code parsing. [Link](https://github.com/nvim-treesitter/nvim-treesitter)
-- **typescript-language-server**: TypeScript/JavaScript language server. [Link](https://github.com/typescript-language-server/typescript-language-server)
-[Test](test.md)
 
 ## Requirements
 
@@ -92,6 +86,7 @@ The following table lists key mappings for this Neovim configuration:
 | `<leader>u` | Normal | Toggle Undotree                             |
 | `<leader>p` | Normal | Toggle Dashboard                            |
 | `<leader>g` | Normal | Toggle DiffView                             |
+| `<leader>r` | Normal | Toggle Fugitive                             |
 | `<leader>f` | Normal | Telescope: Find file                        |
 | `<leader>e` | Normal | Telescope: Grep string                      |
 | `<leader>c` | Normal/Terminal | Toggle Termninal                   |
@@ -123,7 +118,16 @@ Clone into the Neovim config directory:
 git clone https://github.com/Collabo93/init.git ~/.config/nvim
 ```
 
-### 2. Start Neovim
+### 2. (Optional) Place parsers in the correct location
+
+Only required if you are not an administrator on your machine and cannot install parsers.
+Place the `parser` and `parser-info` folders from `nvim-parsers` into the following location so Tree-sitter can detect them:
+
+- **Windows:** `%LOCALAPPDATA%\nvim-data\site`
+- **Linux:** `~/.config/nvim-data/site` 
+
+
+### 3. Start Neovim
 
 Open Neovim:
 
@@ -133,11 +137,11 @@ nvim
 
 Wait until **lazy** automatically installs all plugins.
 
-### 3. Customize Your Settings
+### 4. Customize Your Settings
 
 You can customize the configuration files to fit your preferences:
 
-#### **3.1 Directory Setup**
+#### **4.1 Directory Setup**
 
 Set your root directory, of all your projects, in the `alpha.lua` file:
 
@@ -148,11 +152,11 @@ Set your root directory, of all your projects, in the `alpha.lua` file:
     local projects_root = vim.fn.expand("~/Documents/repos/")
     ```
 
-#### **3.2 copilot**
+#### **4.2 copilot**
 
 If you want to use GitHub Copilot, invoke the command `:Copilot setup` in Neovim to set up your GitHub account.
 
-#### **3.3 Background Image**
+#### **4.3 Background Image**
 
 By default, this setup has a transparent background to support a terminal background image. You have two options:
 
@@ -173,7 +177,7 @@ Comment or delete this line:
 transparent_background = true,
 ```
 
-### 4. Project-Specific Configuration
+### 5. Project-Specific Configuration
 
 Copy the following configuration files into each of your projects to ensure consistent code formatting:
 
