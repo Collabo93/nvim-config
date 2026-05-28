@@ -1,5 +1,4 @@
-local treesitter = require("nvim-treesitter")
-local ensure_installed = {
+local parsers = {
     "lua", "luadoc", "vim", "vimdoc",
     "javascript", "typescript", "tsx", "jsdoc",
     "html", "css", "scss", "jsdoc",
@@ -7,4 +6,11 @@ local ensure_installed = {
     "json", "bash",
 }
 
-treesitter.install(ensure_installed)
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = parsers,
+    callback = function()
+        vim.treesitter.start()
+    end,
+})
+
+require("nvim-treesitter").install(parsers)

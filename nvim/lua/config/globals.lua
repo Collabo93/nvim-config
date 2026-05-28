@@ -10,4 +10,4 @@ vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro nornu"
 -- Use FC as diff command for undotree
 vim.g.undotree_DiffCommand = "FC"
 
--- vim.opt.runtimepath:append(vim.fn.stdpath("data") .. "/site")
+vim.opt.runtimepath:append(vim.fn.stdpath("data") .. "/site")
