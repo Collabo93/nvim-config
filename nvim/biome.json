@@ -1,29 +1,47 @@
 {
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true
-    }
-  },
-  "formatter": {
-    "enabled": true,
-    "indentStyle": "space",
-    "lineWidth": 120,
-    "lineEnding": "lf"
-  },
-  "javascript": {
+    "assist": {
+        "actions": {
+            "source": {
+                "organizeImports": {
+                    "level": "off"
+                }
+            }
+        }
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true
+        }
+    },
     "formatter": {
-      "semicolons": "always",
-      "quoteStyle": "single",
-      "quoteProperties": "asNeeded",
-      "trailingCommas": "es5",
-      "bracketSpacing": true,
-      "arrowParentheses": "always"
+        "enabled": true,
+        "indentStyle": "space",
+        "lineWidth": 120,
+        "lineEnding": "lf",
+        "indentWidth": 4
+    },
+    "javascript": {
+        "formatter": {
+            "semicolons": "always",
+            "quoteStyle": "single",
+            "quoteProperties": "asNeeded",
+            "trailingCommas": "es5",
+            "bracketSpacing": true,
+            "arrowParentheses": "always"
+        }
+    },
+    "html": {
+        "formatter": {
+            "enabled": true
+        }
+    },
+    "css": {
+        "formatter": {
+            "enabled": true
+        },
+        "linter": {
+            "enabled": true
+        }
     }
-  },
-  "html": {
-    "formatter": {
-      "enabled": true
-    }
-  }
 }
