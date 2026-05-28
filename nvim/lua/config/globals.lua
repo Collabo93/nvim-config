@@ -6,8 +6,3 @@ vim.g.have_nerd_font = true
 
 -- Netrw: show line numbers, no relative, no wrap
 vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro nornu"
-
--- Use FC as diff command for undotree
-vim.g.undotree_DiffCommand = "FC"
-
-vim.opt.runtimepath:append(vim.fn.stdpath("data") .. "/site")
