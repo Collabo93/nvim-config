@@ -1,12 +1,16 @@
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-    vim.lsp.handlers.signature_help, {
-        border = 'rounded',
+local orig_signature_help = vim.lsp.handlers.signature_help
+vim.lsp.handlers["textDocument/signatureHelp"] = function(err, result, ctx, config)
+    config = vim.tbl_deep_extend("force", config or {}, {
+        border = "rounded",
         max_height = 7,
         max_width = 80,
         focusable = false,
-        close_events = { 'CursorMoved', 'BufHidden', 'InsertLeave' },
-    }
-)
+        close_events = { "CursorMoved", "BufHidden", "InsertLeave" },
+    })
+
+    return orig_signature_help(err, result, ctx, config)
+end
+
 vim.lsp.config("lua_ls", {
     settings = {
         Lua = {
@@ -20,7 +24,23 @@ vim.lsp.config("lua_ls", {
 })
 
 
-vim.lsp.enable({ 'biome', 'lua_ls', 'ts_ls', 'intelephense' ,'marksman'})
+vim.lsp.enable({ 'biome', 'lua_ls', 'ts_ls', 'intelephense', 'marksman' })
+
+-- workaround to remove snippet placeholders from completion items
+-- as soon as neovim does this natively, this can be removed
+local orig_lsp_to_complete_items = vim.lsp.completion._lsp_to_complete_items
+vim.lsp.completion._lsp_to_complete_items = function(result, prefix, client_id)
+    local items = orig_lsp_to_complete_items(result, prefix, client_id)
+    for _, item in ipairs(items) do
+        if item.word then
+            item.word = item.word:gsub('%$%d+', ''):gsub('%${%d+:([^}]*)}', '%1')
+        end
+        if item.abbr then
+            item.abbr = item.abbr:gsub('%$%d+', ''):gsub('%${%d+:([^}]*)}', '%1')
+        end
+    end
+    return items
+end
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('my.lsp', {}),
