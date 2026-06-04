@@ -34,6 +34,14 @@ vim.keymap.set("t", "<leader>v", function()
     vim.cmd("terminal")
 end)
 
+-- jump to last and next location in jump list
+vim.keymap.set("n", "<C-j>", "<C-o>", {
+    desc = "Jump back"
+})
+vim.keymap.set("n", "<C-k>", "<C-i>", {
+    desc = "Jump forward"
+})
+
 -- Move between splits
 vim.keymap.set("n", "<leader>h", "<C-w><C-h>")
 vim.keymap.set("n", "<leader>l", "<C-w><C-l>")
