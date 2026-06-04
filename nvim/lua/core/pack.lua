@@ -30,6 +30,7 @@ vim.pack.add({
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/rachartier/tiny-cmdline.nvim" },
     { src = "https://github.com/CopilotC-Nvim/CopilotChat.nvim" },
+    { src = "https://github.com/nvim-mini/mini.pairs" },
 })
 
 require("vim._core.ui2").enable({})
@@ -49,3 +50,4 @@ require('plugins.oil')
 require('plugins.cmdline')
 require('plugins.copilotchat')
 require('plugins.treesitter-context')
+require('plugins.mini-pairs')
