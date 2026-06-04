@@ -19,6 +19,7 @@ This section lists the plugins used in this Neovim configuration to enhance func
 - **gitsigns**: Displays Git signs in the gutter and provides Git-related utilities. [Link](https://github.com/lewis6991/gitsigns.nvim)
 - **lazy**: Plugin Manager [Link](https://github.com/folke/lazy.nvim.git)
 - **lualine**: Customizable status line for Neovim. [Link](https://github.com/nvim-lualine/lualine.nvim)
+- **mini pairs**: Gereate automatically two paired characters [Link](https://github.com/nvim-mini/mini.pairs)
 - **modicator**: Changes the color of your cursor's line number based on the current Vim mode [Link](https://github.com/mawkler/modicator.nvim)
 - **oil**: File explorer, to edit filesystem like a buffer [Link](https://github.com/stevearc/oil.nvim)
 - **telescope**: Fuzzy finder for files, buffers, and more. [Link](https://github.com/nvim-telescope/telescope.nvim)
@@ -62,7 +63,7 @@ The following tools are required to use this Neovim configuration:
       ```bash
       npm config get prefix
       ```
-- **Nerd Fonts**: Download and install the [Nerd Font](https://www.nerdfonts.com/font-downloads) of your choice and set it as the font in your terminal for proper icon rendering.
+- **Nerd Fonts**: (optional, but recommended) Download and install the [Nerd Font](https://www.nerdfonts.com/font-downloads) of your choice and set it as the font in your terminal for proper icon rendering.
 ## Shortcuts
 
 The following table lists key mappings for this Neovim configuration:
@@ -70,7 +71,8 @@ The following table lists key mappings for this Neovim configuration:
 | Shortcut    | Mode   | Description                                 |
 | ----------- | ------ | ------------------------------------------- |
 | `<C-a>`     | Normal | Select all text in the current buffer       |
-| `<C-u>`     | Normal | Redo last change                            |
+| `<C-j>`     | Normal | Jump to previous position                   |
+| `<C-k>`     | Normal | Jump to next position                       |
 | `<leader>q` | Normal | Exit current file                           |
 | `<leader>s` | Normal | Replace current word in file                |
 | `<leader>n` | Normal | Jump to next diagnostic error               |
