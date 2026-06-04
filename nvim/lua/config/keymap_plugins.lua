@@ -52,8 +52,17 @@ vim.keymap.set("n", "<leader>u", function()
     require("undotree").open()
 end)
 
--- CopilotChat
-vim.keymap.set("n", "<leader>x", "<cmd>CopilotChatToggle<cr>")
+-- CopilotChat with current buffer
+vim.keymap.set('n', '<leader>x', function()
+    local input = vim.fn.input("Quick Chat: ")
+    if input ~= "" then
+        require("CopilotChat").ask(input, {
+            resources = {
+                'buffer'
+            },
+        })
+    end
+end, { desc = "CopilotChat - Quick chat" })
 
 -- fugitive
 local function toggle_fugitive()
