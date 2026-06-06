@@ -11,3 +11,17 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 if vim.fn.argc() == 0 then
     vim.api.nvim_set_current_dir(vim.fn.stdpath("config"))
 end
+
+-- hide cursorline in inactive windows
+vim.api.nvim_create_autocmd({ "WinLeave" }, {
+    callback = function()
+        vim.wo.cursorline = false
+    end
+})
+
+-- show cursorline in active windows
+vim.api.nvim_create_autocmd({ "WinEnter" }, {
+    callback = function()
+        vim.wo.cursorline = true
+    end
+})
