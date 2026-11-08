@@ -29,11 +29,12 @@ vim.keymap.set({ "n", "t" }, "<leader>c", function()
     end
 end)
 
--- Telescope
+-- fzf
 vim.api.nvim_create_user_command("GrepPrompt", function()
-    require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
+    require("fzf-lua").grep({ search = vim.fn.input("Grep > ") })
 end, {})
-vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>")
+
+vim.keymap.set("n", "<leader>f", "<cmd>FzfLua files<cr>")
 vim.keymap.set("n", "<leader>e", "<cmd>GrepPrompt<cr>")
 
 -- Diffview

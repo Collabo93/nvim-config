@@ -1,7 +1,7 @@
 vim.pack.add({
     -- alpha-nvim, oil
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
-    -- telescope,todo-comments
+    -- diffview, todo-comments, CopilotChat
     { src = "https://github.com/nvim-lua/plenary.nvim" },
 
     -- **plugins**
@@ -24,13 +24,13 @@ vim.pack.add({
     { src = "https://github.com/tpope/vim-fugitive" },
     { src = "https://github.com/nvim-lualine/lualine.nvim" },
     { src = "https://github.com/mawkler/modicator.nvim" },
-    { src = "https://github.com/nvim-telescope/telescope.nvim" },
     { src = "https://github.com/folke/todo-comments.nvim" },
     { src = "https://github.com/akinsho/toggleterm.nvim" },
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/rachartier/tiny-cmdline.nvim" },
     { src = "https://github.com/CopilotC-Nvim/CopilotChat.nvim" },
     { src = "https://github.com/nvim-mini/mini.pairs" },
+    { src = "https://github.com/ibhagwan/fzf-lua" },
 })
 
 require("vim._core.ui2").enable({})
@@ -44,10 +44,10 @@ require('plugins.diffview')
 require('plugins.gitsigns')
 require('plugins.lualine')
 require('plugins.modicator')
-require('plugins.telescope')
 require('plugins.toogleterm')
 require('plugins.oil')
 require('plugins.cmdline')
 require('plugins.copilotchat')
 require('plugins.treesitter-context')
 require('plugins.mini-pairs')
+require('plugins.fzf')
